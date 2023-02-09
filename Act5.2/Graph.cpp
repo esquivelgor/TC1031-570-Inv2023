@@ -248,7 +248,6 @@ void Graph::dijkstraAlgorithm(int v) {
   std::cout << "Vertex\tDistance from source" << std::endl;
   for (int i = 1; i <= numNodes; i++)
     if (dist[i] != INF) {
-      sleep(1);
       std::cout << i << "\t" << dist[i] << std::endl;
     } else
       std::cout << i << "\tINF" << std::endl;
@@ -262,50 +261,18 @@ int Graph::hashTable() {
   return hT.getColl();
 }
 
-// void Graph::getIpSummary(std::string key) {
-//   Ip ip(key, 0);
-//   int n = hT.find(ip.getIpValue());
-//
-//   if (n != -1) {
-//     std::cout << "Ip: ";
-//     hT.printN(n);
-//     for (ptr = mapIp.begin(); ptr != mapIp.end(); ptr++) {
-//       if (ptr->second.getIp() == key) {
-//         dijkstraAlgorithm(ptr->second.getIpIndex());
-//         continue;
-//       }
-//     }
-//   } else
-//     std::cout << "Ip no encontrada" << std::endl;
-// }
-
 void Graph::getIpSummary(std::string key) {
-  int i = 0;
-  int index = findIpIndex(key);
-  if (index == -1) {
-    throw std::out_of_range("No se encontro el elemento");
-  } else {
-    std::cout << "Resumen del IP: " << std::endl;
-    Ip tmpIp(key, 0);
-    ptr = mapIp.find(tmpIp.getIpValue());
-    if (ptr != mapIp.end())
-      std::cout << ptr->second;
-    std::cout << std::endl;
-    std::cout << "Hash index del IP buscado: "
-              << hT.getHashIndex(ptr->second.getIpValue()) << std::endl;
-    std::cout << "IPs accesadas desde esta IP (descendiente): " << std::endl;
-    NodeLinkedList<std::pair<int, int>> *ptr = adjList[index].getHead();
-    std::vector<Ip> ipsContact(adjList[index].getNumElements());
-    while (ptr != nullptr) {
-      std::pair<int, int> par = ptr->data;
-      ipsContact[i] = listIp[par.first];
-      i++;
-      ptr = ptr->next;
+  Ip ip(key, 0);
+  int n = hT.find(ip.getIpValue());
+  if (n != -1) {
+    std::cout << "Ip: ";
+    hT.printN(n);
+    for (ptr = mapIp.begin(); ptr != mapIp.end(); ptr++) {
+      if (ptr->second.getIp() == key) {
+        dijkstraAlgorithm(ptr->second.getIpIndex());
+        continue;
+      }
     }
-    //std::sort(ipsContact.begin(), ipsContact.end(), std::greater<Ip>());
-    for (int j = 0; j < ipsContact.size(); j++) {
-      std::cout << ipsContact[j].getIp() << std::endl;
-    }
-    std::cout << std::endl;
-  }
+  } else
+    std::cout << "Ip no encontrada" << std::endl;
 }

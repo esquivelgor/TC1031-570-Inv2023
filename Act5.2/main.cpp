@@ -1,4 +1,4 @@
-/** Act 4.3 - Actividad Integral de Grafos (Evidencia Competencia)
+/** Act 5.2 - Actividad Integral sobre el uso de códigos hash (Evidencia Competencia)
  *
  * Instituto Tecnológico y de Estudios Superiores de Monterrey
  * Campus Guadalajara
@@ -7,7 +7,7 @@
  * Moisés Hiram Pineda Campos - A01625510
  * Alma Paulina González Sandoval - A01631256
  *
- * 5 de Febrero del 2023
+ * 7 de Febrero del 2023
  *
  *****************************************************************
  *
@@ -44,7 +44,7 @@ int main() {
   int coll = g1.hashTable();
   std::cout << "Colisiones totales: " << coll << std::endl;
 
-  // <-------------> Algoritmo getIpSummary <------------------->
+  // <-------------> Algoritmo getIpSummary (Uso de ) <------------------->
   // Complejidad Computacional: O((V+E)logV)  
   g1.getIpSummary("36.50.52.170");  
   return 0;
