@@ -1,4 +1,4 @@
-# Programación de estructuras de datos y algoritmos fundamentales | Invierno 2023
+# Programming of data structures and fundamental algorithms. | Winter 2023
 
 - Instituto Tecnológico y de Estudios Superiores de Monterrey
 
